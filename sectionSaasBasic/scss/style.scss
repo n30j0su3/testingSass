@@ -1,0 +1,158 @@
+$primary-color: #4682b4;
+$primary-lt-color: #87ceeb;
+$secondary-color: #800080;
+$secondary-lt-color: #ce00ce;
+$accent-color: #ff7f55;
+$dark-color: #333333;
+$black: #000000;
+$light-color: #f4f4f4;
+$white: #ffffff;
+$font-stack: Arial, Helvetica, sans-serif;
+
+// Set Text Color
+@function set-text-color($background-color) {
+  @if(lightness($background-color) > 50) {
+    @return $black;
+  } @else {
+    @return $white;
+  }
+}
+
+// Transform mixin
+@mixin transform($property) {
+  --webkit-transform: $property;
+  -ms-transform: $property;
+  transform: $property;
+}
+
+// Base Styles
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: $white;
+  color: set-text-color($white);
+  font-family: $font-stack;
+  line-height: 1.5;
+}
+
+header {
+  background: $secondary-color;
+  color: set-text-color($secondary-color);
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav {
+  padding: 0.5rem;
+}
+
+nav ul {
+  list-style: none;
+  padding-left: 0;
+
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+nav ul li a {
+  padding: 0.5rem;
+  color: inherit;
+
+  &:hover {
+    cursor: pointer;
+    background-color: $accent-color;
+    color: set-text-color($accent-color);
+  }
+}
+
+main {
+  background: $secondary-lt-color;
+  color: set-text-color($secondary-lt-color);
+  padding: 1rem;
+
+  h1 {
+    text-align: center;
+  }
+}
+
+.section {
+  padding: 3rem;
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  &-a,
+  &-c {
+    background: $primary-color;
+    color: set-text-color($primary-color);
+  }
+  &-b {
+    background: $primary-lt-color;
+    color: set-text-color($primary-lt-color);
+  }
+  
+}
+
+%button-shared {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 2rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: transform 500ms ease-in-out 0ms;
+
+  &:hover {
+    @include transform(scale(1.2));
+  }
+}
+
+.button {
+  &-light {
+    @extend %button-shared;
+    background: $light-color;
+    color: set-text-color($light-color);
+
+    &:hover {
+      background: lighten($secondary-lt-color, 10%);
+    }
+  }
+  &-dark {
+    @extend %button-shared;
+    background: $dark-color;
+    color: set-text-color($dark-color);
+
+    &:hover {
+      background: darken($color: $secondary-lt-color, $amount: 10%);
+    }
+  }
+}
+
+@media screen and (min-width: 600px) {
+  nav,
+  nav ul li a {
+    padding: 1rem;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  body {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  header,
+  main,
+  section {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}

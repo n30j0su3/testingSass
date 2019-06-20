@@ -1,0 +1,17 @@
+{
+  "name": "responsiveapp_codepen",
+  "version": "1.0.0",
+  "description": "\"Responsive app test from codepen https://codepen.io/johnslipper/pen/areQEZ\"",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "keywords": [
+    "Sass",
+    "codepen",
+    "responsive"
+  ],
+  "author": "N30j0su3",
+  "license": "MIT"
+}

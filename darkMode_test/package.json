@@ -1,0 +1,17 @@
+{
+  "name": "darkmode_test",
+  "version": "1.0.0",
+  "description": "\"Testing darkmode with Sass from codepen https://codepen.io/Ceezik/pen/yWRjgY\"",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "keywords": [
+    "Sass",
+    "darkmode",
+    "codepen"
+  ],
+  "author": "N30j0su3",
+  "license": "MIT"
+}

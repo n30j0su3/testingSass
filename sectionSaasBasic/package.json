@@ -1,0 +1,17 @@
+{
+  "name": "sectionssassbasics",
+  "version": "1.0.0",
+  "description": "\"Testing sections with Sass\"",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "keywords": [
+    "Saas",
+    "landing",
+    "Background"
+  ],
+  "author": "N30j0su3",
+  "license": "MIT"
+}

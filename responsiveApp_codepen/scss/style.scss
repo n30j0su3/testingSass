@@ -1,0 +1,299 @@
+/* SCSS variables */
+$app-collapse-width: 475px;
+$app-brand-one: #004F62;
+$app-brand-two: darken($app-brand-one, 5%);
+$app-brand-inverse: mix($app-brand-one, white, 5%);
+$app-border-radius: 4px;
+$spacer: 1rem;
+
+/* SCSS Mixins */
+@mixin screen-reader-only {
+  &:not(:focus):not(:active) {
+    clip: rect(0 0 0 0); 
+    clip-path: inset(100%);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    white-space: nowrap; 
+    width: 1px;
+  }
+}
+
+/* App wrapper */
+.app__wrapper {
+  font-family: sans-serif;
+  
+  @media (min-width: $app-collapse-width) {
+    display: flex;
+    height: 100vh;
+  }
+}
+
+.app__content-skip {
+    position: absolute;
+    top: -1000px;
+    left: -1000px;
+    height: 1px;
+    width: 1px;
+    text-align: left;
+    overflow: hidden;
+    
+    &:active, 
+    &:focus, 
+    &:hover {
+        left: 0; 
+        top: 0;
+        width: auto; 
+        height: auto; 
+        overflow: visible;
+        padding: $spacer;
+        background-color: $app-brand-inverse;
+        color: $app-brand-one;
+        border-radius: $app-border-radius;
+    }
+}
+
+/* Header */
+.header {
+  display: flex;
+  flex-direction: column;
+  background-color: $app-brand-one;
+  padding: $spacer;
+  
+  &, a {
+    color: $app-brand-inverse;
+    text-decoration: none;
+  }
+  
+  @media (min-width: $app-collapse-width) {
+    width: 4.5rem;
+    padding: $spacer 0;
+  }
+}
+
+/* Header wrapper */
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  .material-icons {
+    display: block;
+  }
+  
+  @media (min-width: $app-collapse-width) {
+    flex-direction: column;
+    align-items: center;
+    justify-content: initial;
+  }
+}
+
+/* Brand icon */
+.header__brand {
+  font-size: 2.75rem;
+  span {
+    @include screen-reader-only;
+  }
+}
+
+/* Collapse toggle hamburger */
+.header__collapse-toggle {
+  position: relative;
+  z-index: 1; // keep focus ring on top of animating menu items
+  font-size: 2.5rem;
+  outline-color: $app-brand-inverse;
+  span {
+    @include screen-reader-only;
+  }
+  
+  .header__collapse-open {
+    display: none; // Hide open menu icon
+  }
+  
+  &.header__collapse-toggle--open {
+    .header__collapse-closed {
+      display: none;
+    }
+    .header__collapse-open {
+      display: block;
+    }
+  }
+  
+  @media (min-width: $app-collapse-width) {
+    display: none; // Hide when menu shown
+  }
+}
+
+/* Header collapsible */
+.header__collapse {
+  padding-top: $spacer;
+  flex-direction: column; 
+  display: flex;
+  overflow: hidden;
+  max-height: 600px;
+  transition: max-height 500ms, padding 500ms;
+  
+  &[aria-expanded=false] {
+    // display: none;
+    max-height: 0;
+    padding: 0;
+  }
+  
+  @media (min-width: $app-collapse-width) {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    justify-content: space-between;
+    padding-top: $spacer*1.5;
+    max-height: initial;
+    overflow: initial;
+    transition: none;
+    &[aria-expanded=false] {
+      max-height: inherit;
+      padding: inherit;
+    }
+  }
+}
+
+/* Navigation */
+.header__main-nav,
+.header__secondary-nav {
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+  
+  a {
+    display: flex;
+    align-items: center;
+    padding: $spacer/2 $spacer;
+    margin-bottom: $spacer/2;
+    border-radius: $app-border-radius;
+    transition: all 150ms;
+    
+    .material-icons {
+      transition: transform 150ms;
+    }
+    
+    &:hover,
+    &:focus {
+      background-color: $app-brand-two;
+      color: $app-brand-inverse;
+    }
+    
+    &:active {
+      .material-icons {
+        transform: scale(0.8);
+      }
+    }
+    
+    &.--active:not(:hover):not(:focus) {
+      background-color: $app-brand-inverse;
+      color: $app-brand-two;
+    }
+  }
+  
+  .material-icons {
+    font-size: 1.8rem;
+  }
+  
+  span {
+    margin-left: $spacer;
+  }
+  
+  @media (min-width: $app-collapse-width) {    
+    a {
+      display: block;
+      position: relative;
+      padding: $spacer/2 $spacer/3;
+      text-align: center;
+      border-radius: 0;
+      &:not(:hover):not(:focus) {
+        span {
+          @include screen-reader-only;
+        }
+      }
+      &:hover,
+      &:focus {
+        outline: none;
+        span {
+          position: absolute;
+          display: block;
+          top: -1px;
+          right: 0;
+          padding: $spacer;
+          white-space: nowrap;
+          transform: translate(110%, 0%);
+          background-color: $app-brand-two;
+          color: $app-brand-inverse;
+          border-radius: $app-border-radius;
+          box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+      }
+    }
+  }
+}
+
+.header__secondary-nav {
+  margin-top: $spacer;
+  padding-top: $spacer;
+  border-top: 1px solid fade-out($app-brand-inverse, 0.75);
+  @media (min-width: $app-collapse-width) {
+    border-top: none;
+  }
+}
+
+/* App content */
+.content {
+  flex-grow: 1;
+  background-color: $app-brand-inverse;
+  padding: $spacer*1.5 $spacer*2;
+  
+  h1 {
+    margin-top: 0;
+    margin-bottom: 2rem;
+    letter-spacing: -0.1rem;
+  }
+  
+  ul {
+    padding-left: 1rem;
+    margin-bottom: 2rem;
+    
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+/* Globals */
+* {
+  box-sizing: border-box;
+  outline-color: $app-brand-one;
+}
+
+button {
+  background: none;
+  border:none;
+  color: inherit;
+  padding: 0;
+  margin: 0;
+  line-height: 1;
+}
+
+/* Icon font (ideally SVG instead) */
+.material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  font-size: inherit;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  -moz-osx-font-smoothing: grayscale;
+  font-feature-settings: 'liga';
+}

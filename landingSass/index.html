@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="'https://fonts.googleapis.com/css?family=Work+Sans:800|Open+Sans'">
+    <title>Test landing with sass</title>
+</head>
+
+<body>
+    <div class="container">
+        <!-- <div class="header"> -->
+        <nav class="navbar">
+            <a href="#">Home</a>
+            <a href="#">What's New</a>
+            <a href="#">Products</a>
+            <a href="#">About</a>
+            <a href="#">Buy Now</a>
+        </nav>
+        <!-- </div> -->
+        <div class="background"></div>
+        <section class="section">
+            <h2 class="black-header">Trending Now:</h2>
+            <!-- <p class="featured-title">Featured Product</p> -->
+            <h1 class="title">M·A·C Lipglass</h1>
+            <h2 class="subtitle">Create a <span class="highlight">shine</span></h2>
+            <h2>that <span class="highlight">lasts</span></h2>
+            <img class="product"
+                src="https://www.maccosmetics.com/media/export/cms/products/640x600/mac_sku_S3HT1M_640x600_0.jpg"
+                alt="lipglass" title="M.A.C lipglass">
+            <p class="trending-desc">Get in line for high-shine, because the lacquered lip glosses you knew and loved
+                from the 90s are BACK! Despite the current superslick, wet and juicy lip gloss trend, our iconic
+                Lipglass has ALWAYS been poppin’ thanks to its moisturizing glass-like finish that wears for hours.</p>
+            <h1 class="tagline">Bring your vision to life</h1>
+            <!-- <h1 class="tagline" id="lipglass-color">Muted Rose Pink</h1> -->
+            <p class="desc">M·A·C is the world’s leading professional makeup authority because of our<br> unrivalled
+                expertise in makeup ARTISTRY</p>
+            <div class="image-carousel">
+                <img class="miniImage" id="first"
+                    src="https://www.maccosmetics.com/media/export/cms/products/640x600/mac_sku_S3HT1M_640x600_0.jpg"
+                    onclick="swapImage(this.id)">
+                <img class="miniImage" id="second"
+                    src="https://www.maccosmetics.com/media/export/cms/products/640x600/mac_sku_S3HT1M_640x600_1.jpg"
+                    onclick="swapImage(this.id)">
+                <img class="miniImage" id="third"
+                    src="https://www.maccosmetics.com/media/export/cms/products/640x600/mac_sku_S3HT1M_640x600_2.jpg"
+                    onclick="swapImage(this.id)">
+                <img class="miniImage" id="fourth"
+                    src="https://www.maccosmetics.com/media/export/cms/products/640x600/mac_sku_S3HT1M_640x600_3.jpg"
+                    onclick="swapImage(this.id)">
+                <img class="miniImage" id="fifth"
+                    src="https://www.maccosmetics.com/media/export/cms/products/640x600/mac_sku_S3HT1M_640x600_4.jpg"
+                    onclick="swapImage(this.id)">
+            </div>
+            <div class="button" id="magical" onclick="magicalColor()"></div>
+            <div class="button" id="luxe" onclick="luxeColor()"></div>
+            <div class="button" id="oyster" onclick="oysterColor()"></div>
+            <div class="button" id="myth" onclick="mythColor()"></div>
+            <div class="button" id="candy" onclick="candyColor()"></div>
+            <div class="button" id="ruby" onclick="rubyColor()"></div>
+        </section>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

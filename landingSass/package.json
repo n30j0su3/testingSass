@@ -1,0 +1,17 @@
+{
+  "name": "landingsass",
+  "version": "1.0.0",
+  "description": "\"Testing sass with landind from codepen https://codepen.io/dustybutton/pen/arXgVR\"",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "scss": "node-sass --watch scss -o css"
+  },
+  "keywords": [
+    "landing",
+    "sass",
+    "codepen"
+  ],
+  "author": "N30j0su3",
+  "license": "MIT"
+}

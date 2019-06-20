@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Testing Sass with a responsive app</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"rel="stylesheet">
+</head>
+<body>
+    <div class="app">
+        <div class="app__wrapper">
+          <a href="#content" class="app__content-skip ">Skip to content</a>
+          <header class="header">
+            <div class="header__wrapper">
+              <div class="header__brand">
+                <i class="material-icons" aria-hidden="true">bubble_chart</i>
+                <span>Company logo</span>
+              </div>
+    
+              <button id="toggle" class="header__collapse-toggle" aria-haspopup="true">
+                <div class="header__collapse-closed">
+                  <i class="material-icons" aria-hidden="true">menu</i>
+                  <span>Open menu</span>
+                </div>
+                <div class="header__collapse-open">
+                  <i class="material-icons" aria-hidden="true">close</i>
+                  <span>Close menu</span>
+                </div>
+              </button>
+            </div>
+            
+            <div id="collapse" class="header__collapse" aria-expanded="false">
+              <nav class='header__main-nav' aria-label="Main navigation" tabindex="-1">
+                <ul>
+                  <li>
+                    <a href="#" aria-hidden="true" class="--active">
+                      <i class="material-icons" aria-hidden="true">person</i>
+                      <span>Clients</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" aria-hidden="true">
+                      <i class="material-icons" aria-hidden="true">people</i>
+                      <span>Groups</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" aria-hidden="true">
+                      <i class="material-icons" aria-hidden="true">zoom_in</i>
+                      <span>Advanced search</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" aria-hidden="true">
+                      <i class="material-icons" aria-hidden="true">bar_chart</i>
+                      <span>Insights</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" aria-hidden="true">
+                      <i class="material-icons" aria-hidden="true">payment</i>
+                      <span>Billing</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+              
+              <nav class='header__secondary-nav' aria-label="Secondary navigation" tabindex="-1">
+                <ul>
+                  <li>
+                    <a href="#" aria-hidden="true">
+                      <i class="material-icons" aria-hidden="true">apps</i>
+                      <span>Switch apps</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" aria-hidden="true">
+                      <i class="material-icons" aria-hidden="true">account_circle</i>
+                      <span>User profile</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" aria-hidden="true">
+                      <i class="material-icons" aria-hidden="true">help</i>
+                      <span>Help</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#" aria-hidden="true">
+                      <i class="material-icons" aria-hidden="true">exit_to_app</i>
+                      <span>Logout</span>
+                    </a>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </header>
+              
+          <main id="content" class="content">
+            <h1>App navigation concept</h1>
+            <p><strong>Should be:</strong></p>
+            <ul>
+              <li>Responsive <em>(toggle nav on small screens)</em></li>
+              <li>Accessible <em>(Keyboard & screen reader support)</em></li>
+              <li>Use SVG icons <em>(Icon font used here for simplicity)</em></li>
+            </ul>
+            <p><strong>Tested in:</strong></p>
+            <ul>
+              <li>Chrome (with ChromeVox screen reader)</li>
+            </ul>
+          </main>
+        </div>
+      </div>
+</body>
+</html>
